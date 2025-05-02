@@ -22,7 +22,6 @@ echo -e "${LIGHTBLUE}${BOLD}Twitter: https://x.com/Jaishiva0302${RESET}"
 echo -e "${LIGHTBLUE}${BOLD}Telegram: https://t.me/vampsairdrop${RESET}\n"
 
 # === Update and install dependencies ===
-echo -e "\n${CYAN}${BOLD}---- UPDATING SYSTEM AND INSTALLING DEPENDENCIES ----${RESET}\n"
 sudo apt-get update && sudo apt-get upgrade -y
 
 sudo apt install -y \
@@ -31,13 +30,11 @@ sudo apt install -y \
   libssl-dev libleveldb-dev tar clang bsdmainutils ncdu unzip
 
 # === Remove old container tools ===
-echo -e "\n${CYAN}${BOLD}---- REMOVING OLD CONTAINER TOOLS ----${RESET}\n"
 for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do 
   sudo apt-get remove -y $pkg || true
   done
 
 # === Install Docker ===
-echo -e "\n${CYAN}${BOLD}---- INSTALLING DOCKER ----${RESET}\n"
 sudo apt-get install -y ca-certificates curl gnupg
 sudo install -m 0755 -d /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | \
@@ -64,15 +61,12 @@ sudo systemctl restart docker || {
 }
 
 # === Test Docker ===
-echo -e "\n${CYAN}${BOLD}---- TESTING DOCKER ----${RESET}\n"
 sudo docker run hello-world || true
 
 # === Install Aztec Node ===
-echo -e "\n${CYAN}${BOLD}---- INSTALLING AZTEC NODE ----${RESET}\n"
 bash -i <(curl -s https://install.aztec.network)
 
 # === Prompt for User Input ===
-echo -e "\n${CYAN}${BOLD}---- CONFIGURATION ----${RESET}\n"
 echo -e "${LIGHTBLUE}${BOLD}Visit ${PURPLE}https://dashboard.alchemy.com/apps${RESET}${LIGHTBLUE}${BOLD} or ${PURPLE}https://developer.metamask.io/register${RESET}${LIGHTBLUE}${BOLD} to get a Sepolia RPC URL.${RESET}"
 read -p "Enter Your Sepolia Ethereum RPC URL: " RPC_URL
 
@@ -89,7 +83,6 @@ if [ -z "$IP" ]; then
 fi
 
 # === Firewall setup ===
-echo -e "\n${CYAN}${BOLD}---- CONFIGURING FIREWALL ----${RESET}\n"
 sudo ufw allow 22
 sudo ufw allow ssh
 sudo ufw allow 40400
@@ -97,7 +90,6 @@ sudo ufw allow 8080
 sudo ufw --force enable
 
 # === Start Aztec node in screen ===
-echo -e "\n${CYAN}${BOLD}---- STARTING AZTEC NODE ----${RESET}\n"
 cat > $HOME/start_aztec_node.sh << EOL
 #!/bin/bash
 export PATH=\$PATH:\$HOME/.aztec/bin
