@@ -67,14 +67,14 @@ sudo docker run hello-world || true
 bash -i <(curl -s https://install.aztec.network)
 
 # === Prompt for User Input ===
-echo -e "${LIGHTBLUE}${BOLD}Visit ${PURPLE}https://dashboard.alchemy.com/apps${RESET}${LIGHTBLUE}${BOLD} or ${PURPLE}https://developer.metamask.io/register${RESET}${LIGHTBLUE}${BOLD} to get a Sepolia RPC URL.${RESET}"
-read -p "Enter Your Sepolia Ethereum RPC URL: " RPC_URL
+echo -e "${LIGHTBLUE}${BOLD}Visit ${PURPLE}https://dashboard.alchemy.com/apps${RESET}${LIGHTBLUE}${BOLD} or to get a Sepolia RPC URL.${RESET}"
+read -p "Enter Sepolia Ethereum RPC URL: " RPC_URL
 
 echo -e "\n${LIGHTBLUE}${BOLD}Visit ${PURPLE}https://chainstack.com/global-nodes${RESET}${LIGHTBLUE}${BOLD} to get a beacon RPC URL.${RESET}"
-read -p "Enter Your Sepolia Ethereum BEACON URL: " BEACON_URL
+read -p "Enter Sepolia Ethereum BEACON URL: " BEACON_URL
 
-read -p "Enter your validator private key (with 0x): " SEQUENCER_KEY
-read -p "Enter your coinbase address (with 0x): " COINBASE_ADDR
+read -p "Enter validator private key (with 0x): " SEQUENCER_KEY
+read -p "Enter wallet address (same wallet which you just shared private key above) [with 0x]: " COINBASE_ADDR
 
 IP=$(curl -s https://api.ipify.org || curl -s http://checkip.amazonaws.com || curl -s https://ifconfig.me)
 if [ -z "$IP" ]; then
