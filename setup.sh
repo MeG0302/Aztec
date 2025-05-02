@@ -14,7 +14,7 @@ sudo apt install -y \
 # === Remove old container tools ===
 for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do 
   sudo apt-get remove -y $pkg || true
-done
+  done
 
 # === Install Docker ===
 echo "Installing Docker..."
@@ -35,26 +35,9 @@ sudo apt-get update && sudo apt-get install -y \
   linux-image-extra-$(uname -r) \
   docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
-# === Add missing kernel modules ===
-cat <<EOF | sudo tee /etc/modules-load.d/docker.conf
-overlay
-br_netfilter
-EOF
-
-cat <<EOF | sudo tee /etc/sysctl.d/99-docker.conf
-net.bridge.bridge-nf-call-iptables = 1
-net.ipv4.ip_forward = 1
-net.bridge.bridge-nf-call-ip6tables = 1
-EOF
-
-# Apply sysctl settings
-sudo sysctl --system
-
-# Load the modules
 sudo modprobe overlay
 sudo modprobe br_netfilter
 
-# Reconfigure systemd and restart Docker
 sudo systemctl daemon-reexec
 sudo systemctl enable docker
 sudo systemctl restart docker || {
