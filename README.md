@@ -73,7 +73,7 @@ join discord here - https://discord.gg/aztec
 type the following command in this Discord server: /operator start
 
 come back to vps.
-
+> After running node, you should wait at least 10 to 20 mins before your run these commands
 
 Step 1: Get the latest proven block number:
 ```bash
