@@ -77,6 +77,8 @@ else
     echo -e "${GREEN}${BOLD}Aztec Toolkit already installed.${RESET}"
 fi
 
+aztec-up alpha-testnet
+
 # === Add Aztec to PATH if not present ===
 if ! grep -Fxq 'export PATH=$PATH:/root/.aztec/bin' "$HOME/.bashrc"; then
     echo 'export PATH=$PATH:/root/.aztec/bin' >> "$HOME/.bashrc"
