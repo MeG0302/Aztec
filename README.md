@@ -40,6 +40,13 @@ VPS Options: https://contabo.com/en/vps/
 #
 
 # 🖥️ INSTALLATION 
+# 
+create a ETH wallet save its address and private key
+> fund your wallet with SEPOLIA $ETH
+You can swap arb/op eth to sepolia here - testnetbridge.com/sepolia
+
+#
+
 
 1) Update 
 ```bash
