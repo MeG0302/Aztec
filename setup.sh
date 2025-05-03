@@ -32,7 +32,7 @@ sudo apt install -y \
 # === Remove old container tools ===
 for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do 
   sudo apt-get remove -y $pkg || true
-  done
+done
 
 # === Install Docker ===
 sudo apt-get install -y ca-certificates curl gnupg
@@ -88,6 +88,9 @@ sudo ufw allow ssh
 sudo ufw allow 40400
 sudo ufw allow 8080
 sudo ufw --force enable
+
+# === Add Aztec to PATH automatically ===
+echo 'export PATH=$PATH:/root/.aztec/bin' >> /root/.bash_profile && source /root/.bash_profile
 
 # === Start Aztec node in screen ===
 cat > $HOME/start_aztec_node.sh << EOL
