@@ -69,7 +69,7 @@ else
 fi
 
 # === Install Aztec Node ===
-echo -e "${CYAN}${BOLD}---- INSTALLING AZTEC TOOLKIT ----${RESET}"
+echo -e "${CYAN}${BOLD}---- INSTALLING TOOLKIT ----${RESET}"
 if ! command -v aztec >/dev/null 2>&1; then
     curl -fsSL https://install.aztec.network | bash
     echo -e "${GREEN}${BOLD}Aztec Toolkit installed successfully!${RESET}"
@@ -106,7 +106,7 @@ read -p "Enter validator private key (with 0x): " SEQUENCER_KEY
 read -p "Enter wallet address (same wallet which you just shared private key above) [with 0x]: " COINBASE_ADDR
 
 # === Port Availability Check ===
-echo -e "${CYAN}${BOLD}---- CHECKING PORT AVAILABILITY ----${RESET}"
+echo -e "${CYAN}${BOLD}---- PORT AVAILABILITY ----${RESET}"
 if netstat -tuln | grep -q ":8080 "; then
     echo -e "${LIGHTBLUE}${BOLD}Port 8080 is in use. Attempting to free it...${RESET}"
     sudo fuser -k 8080/tcp
@@ -124,7 +124,7 @@ sudo ufw allow 8080
 sudo ufw --force enable
 
 # === Start Aztec Node in screen ===
-echo -e "${CYAN}${BOLD}---- STARTING AZTEC NODE ----${RESET}"
+echo -e "${CYAN}${BOLD}---- STARTING NODE ----${RESET}"
 
 cat > $HOME/start_aztec_node.sh << EOL
 #!/bin/bash
