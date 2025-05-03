@@ -17,7 +17,7 @@ Hardware:
 
 CPU: 8 cores
 
-RAM: 8GB (Min) 16 GB (recomanded)
+> RAM: 8GB (Min) 16 GB (recommended)
 
 Storage: 100 GB SSD
 
