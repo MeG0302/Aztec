@@ -112,3 +112,40 @@ aztec add-l1-validator \
   --l1-chain-id 11155111
 ```
 NOTE: If you encounter an error like ValidatorQuotaFilledUntil while trying to register as a validator, it means the daily quota has already been reached. do it again after 1 AM UTC
+
+
+#
+#
+#
+#
+#
+#
+
+# UPDATE
+
+1. Stop the previous node 
+```
+docker stop $(docker ps -q --filter "ancestor=aztecprotocol/aztec") && docker rm $(docker ps -a -q --filter "ancestor=aztecprotocol/aztec")
+```
+
+2. Kill Aztec screen
+```
+screen -ls | grep -i aztec | awk '{print $1}' | xargs -I {} screen -X -S {} quit
+```
+3. Update Node
+
+```
+aztec-up alpha-testnet
+```
+4. Delete previous data
+```
+rm -rf ~/.aztec/alpha-testnet/data/
+```
+5. Start Aztec node again
+```bash
+curl -O https://raw.githubusercontent.com/MeG0302/Aztec/main/setup.sh && chmod +x setup.sh && ./setup.sh
+```
+6. Check logs
+```bash
+sudo docker logs -f $(sudo docker ps -q --filter ancestor=aztecprotocol/aztec:latest | head -n 1)
+```
