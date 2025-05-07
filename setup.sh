@@ -79,8 +79,8 @@ export LOG_LEVEL=debug
 export P2P_MAX_TX_POOL_SIZE=1000000000
 
 # Prompt for RPC and validator info
-read -p "🌍 Enter your Ethereum Sepolia RPC URL: " RPC_URL
-read -p "🛰️  Enter your Ethereum Beacon Consensus RPC URL: " CONSENSUS_URL
+read -p "🌍 Enter your Ethereum Sepolia RPC URL(get it from https://dashboard.alchemy.com/apps/): " RPC_URL
+read -p "🛰️  Enter your Ethereum Beacon Consensus RPC URL(get it from https://console.chainstack.com/user/login): " CONSENSUS_URL
 read -p "📡 Enter your saved public IP address: " LOCAL_IP
 read -p "🔑 Enter your validator private key: " PRIVATE_KEY
 
