@@ -47,6 +47,11 @@ You can swap arb/op eth to sepolia here - testnetbridge.com/sepolia
 
 #
 
+### Create screen 
+```
+screen -S aztec
+```
+
 
 1) Update 
 ```bash
