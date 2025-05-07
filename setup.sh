@@ -21,9 +21,6 @@ echo -e "${PURPLE}${BOLD}############################################${RESET}\n"
 echo -e "${LIGHTBLUE}${BOLD}📡 Twitter:  https://x.com/Jaishiva0302${RESET}"
 echo -e "${LIGHTBLUE}${BOLD}💬 Telegram: https://t.me/vampsairdrop${RESET}\n"
 
-
-EOF
-
 sleep 7
 
 # Run as root
