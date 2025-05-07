@@ -1,27 +1,21 @@
 #!/bin/bash
 
-set -e
+clear
 
-# Color codes
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-CYAN='\033[0;36m'
-LIGHTBLUE='\033[1;34m'
-PURPLE='\033[0;35m'
-BOLD='\033[1m'
-RESET='\033[0m'
+# Banner
+cat << "EOF"
 
-# === RetardMeG Design Banner ===
-echo -e "\n${PURPLE}${BOLD}############################################${RESET}"
-echo -e "${PURPLE}${BOLD}#                                          #${RESET}"
-echo -e "${PURPLE}${BOLD}#          A Z T E C   N O D E             #${RESET}"
-echo -e "${PURPLE}${BOLD}#             by RetardMeG                 #${RESET}"
-echo -e "${PURPLE}${BOLD}#                                          #${RESET}"
-echo -e "${PURPLE}${BOLD}############################################${RESET}\n"
-echo -e "${LIGHTBLUE}${BOLD}📡 Twitter:  https://x.com/Jaishiva0302${RESET}"
-echo -e "${LIGHTBLUE}${BOLD}💬 Telegram: https://t.me/vampsairdrop${RESET}\n"
 
-sleep 7
+                                                   
+              A Z T E C   N O D E
+                by RetardMeG
+
+📡 Twitter:  https://x.com/Jaishiva0302
+💬 Telegram: https://t.me/vampsairdrop
+
+EOF
+
+sleep 4
 
 # Run as root
 if [ "$EUID" -ne 0 ]; then
@@ -82,6 +76,10 @@ export DATA_DIRECTORY=/root/aztec-data/
 export COINBASE=$COINBASE
 export LOG_LEVEL=debug
 export P2P_MAX_TX_POOL_SIZE=1000000000
+
+# Create screen
+echo "🖥️ Starting screen session 'aztec'..."
+screen -S aztec
 
 # Prompt for RPC and validator info
 read -p "🌍 Enter your Ethereum Sepolia RPC URL: " RPC_URL
