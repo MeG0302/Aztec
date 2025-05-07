@@ -77,10 +77,6 @@ export COINBASE=$COINBASE
 export LOG_LEVEL=debug
 export P2P_MAX_TX_POOL_SIZE=1000000000
 
-# Create screen
-echo "🖥️ Starting screen session 'aztec'..."
-screen -S aztec
-
 # Prompt for RPC and validator info
 read -p "🌍 Enter your Ethereum Sepolia RPC URL: " RPC_URL
 read -p "🛰️  Enter your Ethereum Beacon Consensus RPC URL: " CONSENSUS_URL
